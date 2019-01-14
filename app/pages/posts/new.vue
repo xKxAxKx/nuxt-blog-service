@@ -37,7 +37,15 @@ export default {
   },
   methods: {
     async publish() {
-    }
+      const payload = {
+        user: this.user,
+        ...this.formData,
+      }
+      await this.publishPost({ payload })
+      this.$router.push('/posts/')
+    },
+    ...mapActions('users', ['updateUser']),
+    ...mapActions('posts', ['publishPost']),
   }
 }
 </script>
