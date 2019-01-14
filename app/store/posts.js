@@ -1,8 +1,8 @@
 import moment from '~/plugins/moment'
 
-export const state = () => {
+export const state = () => ({
   posts: []
-}
+})
 
 export const getters = {
   posts: (state) => state.posts
