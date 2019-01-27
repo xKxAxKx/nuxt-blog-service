@@ -13,6 +13,13 @@
         <el-table-column
           prop="title"
           label="タイトル">
+          <div slot-scope="scope">
+            <span>{{scope.row.title}}&nbsp;</span>
+            <span>
+              <i class="el-icon-star-on" />
+              <span>{{scope.row.likes.length}}</span>
+            </span>
+          </div>
         </el-table-column>
         <el-table-column
           prop="user.id"
@@ -32,7 +39,6 @@
 <script>
 import moment from '~/plugins/moment'
 import { mapGetters } from 'vuex'
-
 export default {
   async asyncData({ store }) {
     await store.dispatch('posts/fetchPosts')
